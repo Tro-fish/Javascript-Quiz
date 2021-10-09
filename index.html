@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Javascript quiz</title>
+        <link rel ="stylesheet" type="text/css" href = "style.css">
+    </head>
+    <body>
+        <div id ="page1" >
+           <div class = "quiz_name">Javascript Quiz</div>
+           <button onclick ="page1()" class = "button1" > Play!</button>
+        </div>
+
+        <div id = "page2" >            
+            <div class = "main_name flex">
+                <div class = "qusetion_text">Question 1/4</div>
+                <div class = "score_text">Score</div>
+            </div>
+            <div class ="progress_margin">
+                <div id = 'page2_progress' class="progress-border" >  
+                    <div class ="progress-bar" style="width: 25%;"></div> 
+                </div>
+                <div id= "page2_score" class = "score"> 0 </div>
+            </div>
+            <div class="question_text">Purpose of designing the Javascript   </div> 
+            <div class = "question_box">
+                <div class ="flex">
+                    <div class = "question_head"><div class = "question_number">A</div></div>
+                    <button onclick ="question1_1()" id = "question2_1" class ="question_body">To Perform Server Side Scripting Opertion</button>
+                </div>
+                <div style="display: flex;">
+                    <div class = "question_head"><div class = "question_number">B</div></div>
+                    <button onclick ="question1_2()" id = "question2_2" class ="question_body">To add interactivity to HTML Pages</button>
+                </div>
+                <div style="display: flex;">
+                    <div class = "question_head"><div class = "question_number">C</div></div>
+                    <button onclick ="question1_3()" id = "question2_3" class ="question_body">To Style HTML Pages</button>
+                </div>
+                <div style="display: flex;">
+                    <div class = "question_head"><div class = "question_number">D</div></div>
+                    <button onclick ="question1_4()" id = "question2_4" class ="question_body">All of the above</button>
+                </div>
+            </div> 
+                  
+        </div>
+
+       <div id ="page3">
+
+        <div style = "display: flex; margin-left: 25%;padding-top: 10%;">
+            <div style="text-align: center; font-size: 20px;">Question 2/4</div>
+            <div style="margin-left: 55%; font-size: 20px;">Score</div>
+        </div>
+        <div style = "display: flex; margin-left: 23%;">
+            <div id = 'page2_progress' class="progress-border" >  
+                <div class ="progress-bar" style="width: 50%;"></div> 
+            </div>
+            <div id= "page3_score" class = "score"> 0 </div>
+        </div>
+        <div style = "margin-left: 23%; margin-top : 3%;margin-bottom: 3%;font-size: 55px;font-weight: bold;">Why so JavaScript and Java have similar name?   </div> 
+        <div style = "display: flex; flex-direction: column; margin-left : 23%;height :230px;justify-content: space-between;">
+            <div style="display: flex;flex-direction: row;">
+                <div class = "question_head"><div style="margin-top: 8px;">A</div></div>
+                <button onclick ="question2_1()" id = "question3_1" class ="question_body">They both originated on the island of Java</button>
+            </div>
+            <div style="display: flex;">
+                <div class = "question_head"><div style="margin-top: 8px;">B</div></div>
+                <button onclick ="question2_2()" id = "question3_2" class ="question_body">JavaScript's syntax is loosely based on Java's</button>
+            </div>
+            <div style="display: flex;">
+                <div class = "question_head"><div style="margin-top: 8px;">C</div></div>
+                <button onclick ="question2_3()" id = "question3_3" class ="question_body">Both A and B</button>
+            </div>
+            <div style="display: flex;">
+                <div class = "question_head"><div style="margin-top: 8px;">D</div></div>
+                <button onclick ="question2_4()" id = "question3_4" class ="question_body">None of the above</button>
+            </div>
+        </div> 
+
+       </div>
+
+
+        <script>
+            let score = 0;
+             function page1()
+             {
+                document.getElementById("page1").style ="display : none";  
+                document.getElementById("page2").style ="display : block";   
+             }
+             function question1_1()
+             {
+                document.getElementById("question2_1").style = "background : red";
+                document.getElementById("page2_score").innerText = score; 
+                setTimeout(() => document.getElementById("page2").style ="display : none",1000);
+                document.getElementById("page3_score").innerText = score;  
+                document.getElementById("page3").style = "display : block";   
+                
+             }
+             function question1_2()
+             {
+                document.getElementById("question2_2").style = "background : green";
+                score++;  
+                document.getElementById("page2_score").innerText = score; 
+                setTimeout(() => document.getElementById("page2").style ="display : none",1000);
+                document.getElementById("page3_score").innerText = score;  
+                document.getElementById("page3").style = "display : block";                  
+             } 
+             function question1_3()
+             {
+                document.getElementById("question2_3").style = "background : red";
+                document.getElementById("page2_score").innerText = score; 
+                setTimeout(() => document.getElementById("page2").style ="display : none",1000);
+                document.getElementById("page3_score").innerText = score;  
+                document.getElementById("page3").style = "display : block";   
+                
+             }
+             function question1_4()
+             {
+                document.getElementById("question2_4").style = "background : red";
+                document.getElementById("page2_score").innerText = score; 
+                setTimeout(() => document.getElementById("page2").style ="display : none",1000);
+                document.getElementById("page3_score").innerText = score;  
+                document.getElementById("page3").style = "display : block";                   
+             }
+
+
+             function question2_1()
+             {
+                document.getElementById("question3_1").style = "background : red";
+                document.getElementById("page3_score").innerText = score; 
+                setTimeout(() => document.getElementById("page3").style ="display : none",1000);
+                document.getElementById("page4_score").innerText = score;  
+                document.getElementById("page4").style = "display : block";   
+                
+             }
+             function question2_2()
+             {
+                document.getElementById("question3_2").style = "background : red";
+                document.getElementById("page3_score").innerText = score; 
+                setTimeout(() => document.getElementById("page3").style ="display : none",1000);
+                document.getElementById("page4_score").innerText = score;  
+                document.getElementById("page4").style = "display : block";   
+                
+             }
+             function question2_3()
+             {
+                document.getElementById("question3_3").style = "background : red";
+                document.getElementById("page3_score").innerText = score; 
+                setTimeout(() => document.getElementById("page3").style ="display : none",1000);
+                document.getElementById("page4_score").innerText = score;  
+                document.getElementById("page4").style = "display : block";   
+                
+             }
+             function question2_4()
+             {
+                document.getElementById("question3_4").style = "background : green";
+                score++;
+                document.getElementById("page3_score").innerText = score; 
+                setTimeout(() => document.getElementById("page3").style ="display : none",1000);
+                document.getElementById("page4_score").innerText = score;  
+                document.getElementById("page4").style = "display : block";   
+                
+             }    
+             
+             
+        </script>
+    </body>
+</html>
