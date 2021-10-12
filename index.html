@@ -179,9 +179,42 @@
         <script>
             let score = 0;
             let question_number = 0;
-            let question_on =[0,0,0,0,0]
+            //1이면 출제된 문제 0이면 아직 출제 안된 문제
+            let question_on =[0,0,0,0]
+            let question_count = 0;
+
+            //열어야할 페이지 리턴해주기
+            function page_change()
+            {
+                question_count++;
+                //4문제가 나왔을 때는 게임 종료
+                if(question_count > 4)
+                {
+                    document.getElementById("page_end").style = "display : block";   
+                }
+                else
+                {
+                    while(1)
+                    {
+                        //2~5까지 랜덤으로 번호 생성
+                        question_number = Math.floor(Math.random()*5)+2;
+                        if(question_on[question_number-2] == 0)
+                        {
+                            break;
+                        }
+                    }
+                    question_on[question_number-2] = 1;
+                    let page_num = "page" + String(question_number);
+                    return page_num;
+                }
+            }
+            for(let i=0;i<4;i++)
+            {
+                let page_num = page_change();
+                console.log(page_num);
+            }
              function page1()
-             {
+             {                
                 document.getElementById("page1").style ="display : none";  
                 document.getElementById("page2").style ="display : block";   
              }
@@ -345,6 +378,7 @@
                  document.getElementById("page2").style = "display : block"; 
                  document.getElementById("page2_score").innerText = score;                   
                  let temp = "question";
+                 //clear all color information
                  for(let i=2;i<=5;i++)
                  {                     
                      for(let k=1;k<=4;k++)
