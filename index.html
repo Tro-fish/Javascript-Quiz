@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Javascript quiz</title>
         <link rel ="stylesheet" type="text/css" href = "style.css">
+        <script src ="back.js"></script>
     </head>
     <body>
         <!--first page-->
@@ -17,13 +18,13 @@
         <div id = "page2" class ="page_set" >     
 
             <div class = "main_name flex">
-                <div id ="qnum2" class = "qusetion_text">Question 1/4</div>
+                <div id ="qnum2" class = "qusetion_text">Question</div>
                 <div class = "score_text">Score</div>
             </div>
             <div class ="progress_margin">
-                <!--quiz progress bar 25%-->
+                <!--quiz progress bar-->
                 <div class="progress-border" >  
-                    <div id = 'page2_progress' class ="progress-bar" style="width: 25%;"></div> 
+                    <div id = 'page2_progress' class ="progress-bar"></div> 
                 </div>
                 <!--quiz score-->
                 <div id= "page2_score" class = "score"> 0 </div>
@@ -55,13 +56,13 @@
        <div id = "page3" class ="page_set" >   
 
             <div class = "main_name flex">
-                <div id ="qnum3" class = "qusetion_text">Question 2/4</div>
+                <div id ="qnum3" class = "qusetion_text">Question</div>
                 <div class = "score_text">Score</div>
             </div>
             <div class ="progress_margin">
-                <!--quiz progress bar 50%-->
+                <!--quiz progress bar-->
                 <div class="progress-border" >  
-                    <div id = 'page3_progress' class ="progress-bar" style="width: 50%;"></div> 
+                    <div id = 'page3_progress' class ="progress-bar"></div> 
                 </div>
                 <!--quiz score-->
                 <div id= "page3_score" class = "score"> 0 </div>
@@ -93,13 +94,13 @@
        <div id = "page4" class ="page_set">   
 
         <div class = "main_name flex">
-            <div id ="qnum4" class = "qusetion_text">Question 3/4</div>
+            <div id ="qnum4" class = "qusetion_text">Question</div>
             <div class = "score_text">Score</div>
         </div>
         <div class ="progress_margin">
-            <!--quiz progress bar 75%-->
+            <!--quiz progress bar-->
             <div class="progress-border" >  
-                <div id = 'page4_progress' class ="progress-bar" style="width: 75%;"></div> 
+                <div id = 'page4_progress' class ="progress-bar"></div> 
             </div>
             <!--quiz score-->
             <div id= "page4_score" class = "score"> 0 </div>
@@ -131,13 +132,13 @@
        <div id = "page5" class ="page_set">   
 
         <div class = "main_name flex">
-            <div id ="qnum5" class = "qusetion_text">Question 4/4</div>
+            <div id ="qnum5" class = "qusetion_text">Question</div>
             <div class = "score_text">Score</div>
         </div>
         <div class ="progress_margin">
-            <!--quiz progress bar 100%-->
+            <!--quiz progress bar-->
             <div class="progress-border" >  
-                <div id = 'page5_progress' class ="progress-bar" style="width: 100%;"></div> 
+                <div id = 'page5_progress' class ="progress-bar"></div> 
             </div>
             <!--quiz score-->
             <div id= "page5_score" class = "score"> 0 </div>
@@ -161,255 +162,92 @@
                 <div class = "question_head"><div class = "question_number">D</div></div>
                 <button onclick ="question4_4()" id = "question5_4" class ="question_body">None of the above</button>
             </div>
+        </div>               
+        </div>
+
+        <!--sixth page-->
+       <div id = "page6" class ="page_set">   
+
+        <div class = "main_name flex">
+            <div id = "qnum6"class = "qusetion_text">Question</div>
+            <div class = "score_text">Score</div>
+        </div>
+        <div class ="progress_margin">
+            <!--quiz progress bar-->
+            <div class="progress-border" >  
+                <div id = 'page6_progress' class ="progress-bar"></div> 
+            </div>
+            <!--quiz score-->
+            <div id= "page6_score" class = "score"> 0 </div>
+        </div>
+        <div class="question_text">Which is not valid data type in<br> Javascript</div> 
+        <div class = "question_box">
+            <!--button to choose your answer-->
+            <div class ="flex">
+                <div class = "question_head"><div class = "question_number">A</div></div>
+                <button onclick ="question5_1()" id = "question6_1" class ="question_body">Undefinded</button>
+            </div>
+            <div style="display: flex;">
+                <div class = "question_head"><div class = "question_number">B</div></div>
+                <button onclick ="question5_2()" id = "question6_2" class ="question_body">Boolean</button>
+            </div>
+            <div style="display: flex;">
+                <div class = "question_head"><div class = "question_number">C</div></div>
+                <button onclick ="question5_3()" id = "question6_3" class ="question_body">float</button>
+            </div>
+            <div style="display: flex;">
+                <div class = "question_head"><div class = "question_number">D</div></div>
+                <button onclick ="question5_4()" id = "question6_4" class ="question_body">Number</button>
+            </div>
         </div> 
               
         </div>
 
 
+        <!--seventh page-->
+       <div id = "page7" class ="page_set">   
+
+        <div class = "main_name flex">
+            <div id = "qnum7"class = "qusetion_text">Question</div>
+            <div class = "score_text">Score</div>
+        </div>
+        <div class ="progress_margin">
+            <!--quiz progress bar-->
+            <div class="progress-border" >  
+                <div id = 'page7_progress' class ="progress-bar"></div> 
+            </div>
+            <!--quiz score-->
+            <div id= "page7_score" class = "score"> 0 </div>
+        </div>
+        <div class="question_text">Which one is the grammar of JavaScript <br>that acts as printf in the C </div> 
+        <div class = "question_box">
+            <!--button to choose your answer-->
+            <div class ="flex">
+                <div class = "question_head"><div class = "question_number">A</div></div>
+                <button onclick ="question6_1()" id = "question7_1" class ="question_body">console.log</button>
+            </div>
+            <div style="display: flex;">
+                <div class = "question_head"><div class = "question_number">B</div></div>
+                <button onclick ="question6_2()" id = "question7_2" class ="question_body">docuemnt</button>
+            </div>
+            <div style="display: flex;">
+                <div class = "question_head"><div class = "question_number">C</div></div>
+                <button onclick ="question6_3()" id = "question7_3" class ="question_body">getElementById</button>
+            </div>
+            <div style="display: flex;">
+                <div class = "question_head"><div class = "question_number">D</div></div>
+                <button onclick ="question6_4()" id = "question7_4" class ="question_body">prompt</button>
+            </div>
+        </div> 
+              
+        </div>
 
         <!--last page-->
         <div id = "page_end">
             <div style="display: flex; flex-direction: column; justify-content: center;">
-            <div id="result" class = "quiz_name">Total Score : 2</div>         
+            <div id="result" class = "quiz_name">Total Score</div>         
             <button onclick ="restart()" class = "button1" > Play Again</button>
             </div>
         </div>
-
-
-        <script>
-            let score = 0;
-            let question_number = 0;
-            //1이면 출제된 문제 0이면 아직 출제 안된 문제
-            let question_on =[0,0,0,0]
-            let question_count = 0;
-
-            function sleep (delay) {
-            var start = new Date().getTime();
-            while (new Date().getTime() < start + delay);}
-
-            //열어야할 페이지 리턴해주기
-            function page_change()
-            {
-                question_count++;
-                //4문제가 나왔을 때는 게임 종료
-                if(question_count > 4)
-                {
-                    document.getElementById("result").innerText = "Total Score : " +String(score);
-                    return "page_end"
-                }
-                else
-                {
-                    while(1)
-                    {
-                        //2~5까지 랜덤으로 번호 생성
-                        question_number = Math.floor(Math.random()*5)+2;
-                        if(question_on[question_number-2] == 0)
-                        {
-                            break;
-                        }
-                    }
-                    question_on[question_number-2] = 1;
-                    let page_num = "page" + String(question_number);
-
-                    //다음 페이지 정보 변경
-                    let quest_num = "qnum" + String(question_number);
-                    let progrss_num = page_num + "_progress";
-                    let score_num = page_num + "_score";
-                    console.log(score_num);
-                    document.getElementById(quest_num).innerText ="Question "+(question_count)+"/4";
-                    document.getElementById(progrss_num).style = ("width : " + String(question_count*25)+"%");
-                    document.getElementById(score_num).innerText = score;  
-
-                    return page_num;
-                }
-            }
-            //다음 페이지의 점수, 문제 번호, 프로그래스바 변경
-            function set_next(page_num)
-            {
-                let quest_num = "qnum" + String(page_num);
-                let progrss_num = "page" + String(page_num) + "_progress";
-                let score_num = "page" + String(page_num) + "_score";
-                document.getElementById(quest_num).innerText ="Question "+(question_number)+"/4";
-                document.getElementById(progrss_num).style = ("width : " + String(question_number*25)+"%");
-                document.getElementById(score_num).innerText = score;  
-            }   
-            
-             function page1()
-             {                
-                document.getElementById("page1").style ="display : none";                  
-                document.getElementById(page_change()).style ="display : block";   
-             }
-             function question1_1()
-             {
-                document.getElementById("question2_1").style = "background : red";                              
-                document.getElementById("page2_score").innerText = score;  
-                let page_num = page_change();               
-                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";                   
-                
-             }
-             function question1_2()
-             {
-                document.getElementById("question2_2").style = "background : green";                              
-                score++; document.getElementById("page2_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";                                
-             } 
-             function question1_3()
-             {
-                document.getElementById("question2_3").style = "background : red";                              
-                document.getElementById("page2_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";    
-                
-             }
-             function question1_4()
-             {
-                document.getElementById("question2_4").style = "background : red";                              
-                document.getElementById("page2_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";                   
-             }
-
-
-             function question2_1()
-             {
-                document.getElementById("question3_1").style = "background : red";                              
-                document.getElementById("page3_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";      
-             }
-             function question2_2()
-             {
-                document.getElementById("question3_2").style = "background : red";                              
-                document.getElementById("page3_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";  
-                
-             }
-             function question2_3()
-             {
-                document.getElementById("question3_3").style = "background : red";                              
-                document.getElementById("page3_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block"; 
-                
-             }
-             function question2_4()
-             {
-                document.getElementById("question3_4").style = "background : green";                              
-                score++; document.getElementById("page3_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";   
-                
-             } 
-             
-             
-             function question3_1()
-             {
-                document.getElementById("question4_1").style = "background : red";                              
-                document.getElementById("page4_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";                   
-             }
-             function question3_2()
-             {
-                document.getElementById("question4_2").style = "background : red";                              
-                document.getElementById("page4_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";    
-                
-             }
-             function question3_3()
-             {
-                document.getElementById("question4_3").style = "background : red";                              
-                document.getElementById("page4_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";     
-                
-             }
-             function question3_4()
-             {
-                document.getElementById("question4_4").style = "background : green";                              
-                score++; 
-                document.getElementById("page4_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";      
-                
-             } 
-
-             function question4_1()
-             {
-                document.getElementById("question5_1").style = "background : green";                              
-                score++; 
-                document.getElementById("page5_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";     
-                
-             }
-             function question4_2()
-             {
-                document.getElementById("question5_2").style = "background : red";                              
-                document.getElementById("page5_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";    
-                
-             }
-             function question4_3()
-             {
-                document.getElementById("question5_3").style = "background : red";                              
-                document.getElementById("page5_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";    
-                
-             }
-             function question4_4()
-             {
-                document.getElementById("question5_4").style = "background : red";                              
-                document.getElementById("page5_score").innerText = score;  
-                let page_num = page_change();
-                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";     
-                
-             } 
-
-             function restart()
-             {
-                 score = 0;
-                 document.getElementById("page_end").style ="display : none"
-                 //question_number = (Math.random()*5)+1;
-                 document.getElementById("page2").style = "display : block"; 
-                 document.getElementById("page2_score").innerText = score;                   
-                 let temp = "question";
-                 //clear all color information
-                 for(let i=2;i<=5;i++)
-                 {                     
-                     for(let k=1;k<=4;k++)
-                     {
-                         let re = temp + String(i)+"_"+String(k)
-                        document.getElementById(re).style = "background : #ffffff";
-                     }
-                 }
-
-             }
-
-
-             
-             
-        </script>
     </body>
 </html>
