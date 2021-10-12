@@ -96,8 +96,6 @@
                 setTimeout(() => document.getElementById("page2").style ="display : none",1000);                  
                 document.getElementById(page_num).style = "display : block";                   
              }
-
-
              function question2_1()
              {
                 document.getElementById("question3_1").style = "background : red";                              
@@ -169,8 +167,7 @@
                 document.getElementById("page4_score").innerText = score;  
                 let page_num = page_change();
                 setTimeout(() => document.getElementById("page4").style ="display : none",1000);                  
-                document.getElementById(page_num).style = "display : block";      
-                
+                document.getElementById(page_num).style = "display : block";                      
              } 
 
              function question4_1()
