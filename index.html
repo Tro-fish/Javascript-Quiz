@@ -22,8 +22,8 @@
             </div>
             <div class ="progress_margin">
                 <!--quiz progress bar 25%-->
-                <div id = 'page2_progress' class="progress-border" >  
-                    <div class ="progress-bar" style="width: 25%;"></div> 
+                <div class="progress-border" >  
+                    <div id = 'page2_progress' class ="progress-bar" style="width: 25%;"></div> 
                 </div>
                 <!--quiz score-->
                 <div id= "page2_score" class = "score"> 0 </div>
@@ -60,8 +60,8 @@
             </div>
             <div class ="progress_margin">
                 <!--quiz progress bar 50%-->
-                <div id = 'page3_progress' class="progress-border" >  
-                    <div class ="progress-bar" style="width: 50%;"></div> 
+                <div class="progress-border" >  
+                    <div id = 'page3_progress' class ="progress-bar" style="width: 50%;"></div> 
                 </div>
                 <!--quiz score-->
                 <div id= "page3_score" class = "score"> 0 </div>
@@ -98,8 +98,8 @@
         </div>
         <div class ="progress_margin">
             <!--quiz progress bar 75%-->
-            <div id = 'page4_progress' class="progress-border" >  
-                <div class ="progress-bar" style="width: 75%;"></div> 
+            <div class="progress-border" >  
+                <div id = 'page4_progress' class ="progress-bar" style="width: 75%;"></div> 
             </div>
             <!--quiz score-->
             <div id= "page4_score" class = "score"> 0 </div>
@@ -136,8 +136,8 @@
         </div>
         <div class ="progress_margin">
             <!--quiz progress bar 100%-->
-            <div id = 'page5_progress' class="progress-border" >  
-                <div class ="progress-bar" style="width: 100%;"></div> 
+            <div class="progress-border" >  
+                <div id = 'page5_progress' class ="progress-bar" style="width: 100%;"></div> 
             </div>
             <!--quiz score-->
             <div id= "page5_score" class = "score"> 0 </div>
@@ -183,6 +183,10 @@
             let question_on =[0,0,0,0]
             let question_count = 0;
 
+            function sleep (delay) {
+            var start = new Date().getTime();
+            while (new Date().getTime() < start + delay);}
+
             //열어야할 페이지 리턴해주기
             function page_change()
             {
@@ -190,7 +194,8 @@
                 //4문제가 나왔을 때는 게임 종료
                 if(question_count > 4)
                 {
-                    document.getElementById("page_end").style = "display : block";   
+                    document.getElementById("result").innerText = "Total Score : " +String(score);
+                    return "page_end"
                 }
                 else
                 {
@@ -205,168 +210,180 @@
                     }
                     question_on[question_number-2] = 1;
                     let page_num = "page" + String(question_number);
+
+                    //다음 페이지 정보 변경
+                    let quest_num = "qnum" + String(question_number);
+                    let progrss_num = page_num + "_progress";
+                    let score_num = page_num + "_score";
+                    console.log(score_num);
+                    document.getElementById(quest_num).innerText ="Question "+(question_count)+"/4";
+                    document.getElementById(progrss_num).style = ("width : " + String(question_count*25)+"%");
+                    document.getElementById(score_num).innerText = score;  
+
                     return page_num;
                 }
             }
-            for(let i=0;i<4;i++)
+            //다음 페이지의 점수, 문제 번호, 프로그래스바 변경
+            function set_next(page_num)
             {
-                let page_num = page_change();
-                console.log(page_num);
-            }
+                let quest_num = "qnum" + String(page_num);
+                let progrss_num = "page" + String(page_num) + "_progress";
+                let score_num = "page" + String(page_num) + "_score";
+                document.getElementById(quest_num).innerText ="Question "+(question_number)+"/4";
+                document.getElementById(progrss_num).style = ("width : " + String(question_number*25)+"%");
+                document.getElementById(score_num).innerText = score;  
+            }   
+            
              function page1()
              {                
-                document.getElementById("page1").style ="display : none";  
-                document.getElementById("page2").style ="display : block";   
+                document.getElementById("page1").style ="display : none";                  
+                document.getElementById(page_change()).style ="display : block";   
              }
              function question1_1()
              {
-                document.getElementById("question2_1").style = "background : red";
-                document.getElementById("page2_score").innerText = score;             
-                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                
-                document.getElementById("page3_score").innerText = score;  
-                document.getElementById("page3").style = "display : block";                   
+                document.getElementById("question2_1").style = "background : red";                              
+                document.getElementById("page2_score").innerText = score;  
+                let page_num = page_change();               
+                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";                   
                 
              }
              function question1_2()
              {
-                document.getElementById("question2_2").style = "background : green";
-                score++;  
-                document.getElementById("page2_score").innerText = score; 
-                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                
-                document.getElementById("page3_score").innerText = score;  
-                document.getElementById("page3").style = "display : block";                                
+                document.getElementById("question2_2").style = "background : green";                              
+                score++; document.getElementById("page2_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";                                
              } 
              function question1_3()
              {
-                document.getElementById("question2_3").style = "background : red";
-                document.getElementById("page2_score").innerText = score; 
-                setTimeout(() => document.getElementById("page2").style ="display : none",1000);          
-                document.getElementById("page3_score").innerText = score;  
-                document.getElementById("page3").style = "display : block";   
+                document.getElementById("question2_3").style = "background : red";                              
+                document.getElementById("page2_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";    
                 
              }
              function question1_4()
              {
-                document.getElementById("question2_4").style = "background : red";
-                document.getElementById("page2_score").innerText = score; 
-                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                
-                document.getElementById("page3_score").innerText = score;  
-                document.getElementById("page3").style = "display : block";                   
+                document.getElementById("question2_4").style = "background : red";                              
+                document.getElementById("page2_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page2").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";                   
              }
 
 
              function question2_1()
              {
-                document.getElementById("question3_1").style = "background : red";
-                document.getElementById("page3_score").innerText = score; 
-                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                
-                document.getElementById("page4_score").innerText = score;  
-                document.getElementById("page4").style = "display : block";   
-                
+                document.getElementById("question3_1").style = "background : red";                              
+                document.getElementById("page3_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";      
              }
              function question2_2()
              {
-                document.getElementById("question3_2").style = "background : red";
-                document.getElementById("page3_score").innerText = score; 
-                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                
-                document.getElementById("page4_score").innerText = score;  
-                document.getElementById("page4").style = "display : block";   
+                document.getElementById("question3_2").style = "background : red";                              
+                document.getElementById("page3_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";  
                 
              }
              function question2_3()
              {
-                document.getElementById("question3_3").style = "background : red";
-                document.getElementById("page3_score").innerText = score; 
-                setTimeout(() => document.getElementById("page3").style ="display : none",1000);               
-                document.getElementById("page4_score").innerText = score;  
-                document.getElementById("page4").style = "display : block";   
+                document.getElementById("question3_3").style = "background : red";                              
+                document.getElementById("page3_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block"; 
                 
              }
              function question2_4()
              {
-                document.getElementById("question3_4").style = "background : green";
-                score++;
-                document.getElementById("page3_score").innerText = score; 
-                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                
-                document.getElementById("page4_score").innerText = score;  
-                document.getElementById("page4").style = "display : block";   
+                document.getElementById("question3_4").style = "background : green";                              
+                score++; document.getElementById("page3_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page3").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";   
                 
              } 
              
              
              function question3_1()
              {
-                document.getElementById("question4_1").style = "background : green";
-                score++;
-                document.getElementById("page4_score").innerText = score; 
-                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                
-                document.getElementById("page5_score").innerText = score;  
-                document.getElementById("page5").style = "display : block";   
-                
+                document.getElementById("question4_1").style = "background : red";                              
+                document.getElementById("page4_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";                   
              }
              function question3_2()
              {
-                document.getElementById("question4_2").style = "background : red";
-                document.getElementById("page4_score").innerText = score; 
-                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                
-                document.getElementById("page5_score").innerText = score;  
-                document.getElementById("page5").style = "display : block";   
+                document.getElementById("question4_2").style = "background : red";                              
+                document.getElementById("page4_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";    
                 
              }
              function question3_3()
              {
-                document.getElementById("question4_3").style = "background : red";
-                document.getElementById("page4_score").innerText = score; 
-                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                
-                document.getElementById("page5_score").innerText = score;  
-                document.getElementById("page5").style = "display : block";   
+                document.getElementById("question4_3").style = "background : red";                              
+                document.getElementById("page4_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";     
                 
              }
              function question3_4()
              {
-                document.getElementById("question4_4").style = "background : green";               
-                document.getElementById("page4_score").innerText = score; 
-                setTimeout(() => document.getElementById("page4").style ="display : none",1000);               
-                document.getElementById("page5_score").innerText = score;  
-                document.getElementById("page5").style = "display : block";   
+                document.getElementById("question4_4").style = "background : green";                              
+                score++; 
+                document.getElementById("page4_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page4").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";      
                 
              } 
 
              function question4_1()
              {
-                document.getElementById("question5_1").style = "background : green";
-                score++;
-                document.getElementById("page5_score").innerText = score; 
-                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                 
-                document.getElementById("result").innerText = "Total score : "+score;                 
-                document.getElementById("page_end").style = "display : block";   
+                document.getElementById("question5_1").style = "background : green";                              
+                score++; 
+                document.getElementById("page5_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";     
                 
              }
              function question4_2()
              {
-                document.getElementById("question5_2").style = "background : red";
-                document.getElementById("page5_score").innerText = score; 
-                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                    
-                document.getElementById("result").innerText = "Total score : "+score;                
-                document.getElementById("page_end").style = "display : block";   
+                document.getElementById("question5_2").style = "background : red";                              
+                document.getElementById("page5_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";    
                 
              }
              function question4_3()
              {
-                document.getElementById("question5_3").style = "background : red";
-                document.getElementById("page5_score").innerText = score; 
+                document.getElementById("question5_3").style = "background : red";                              
+                document.getElementById("page5_score").innerText = score;  
+                let page_num = page_change();
                 setTimeout(() => document.getElementById("page5").style ="display : none",1000);                  
-                document.getElementById("result").innerText = "Total score : "+score;                  
-                document.getElementById("page_end").style = "display : block";   
+                document.getElementById(page_num).style = "display : block";    
                 
              }
              function question4_4()
              {
-                document.getElementById("question5_4").style = "background : green";               
-                document.getElementById("page5_score").innerText = score; 
-                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                 
-                document.getElementById("result").innerText = "Total score : "+score;                   
-                document.getElementById("page_end").style = "display : block";   
+                document.getElementById("question5_4").style = "background : red";                              
+                document.getElementById("page5_score").innerText = score;  
+                let page_num = page_change();
+                setTimeout(() => document.getElementById("page5").style ="display : none",1000);                  
+                document.getElementById(page_num).style = "display : block";     
                 
              } 
 
