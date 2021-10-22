@@ -267,7 +267,7 @@
              }
              function question6_3()
              {
-                document.getElementById("question7_3").style = "background : green";
+                document.getElementById("question7_3").style = "background : red";
                 score++;                              
                 document.getElementById("page7_score").innerText = score;  
                 let page_num = page_change();
@@ -292,7 +292,7 @@
                 score = 0;
                 question_number = 0;
                 question_on.fill(0);
-                question_count =0;
+                question_count =3;
                 let temp = "question";                                                                                 
                  //Clear all color information
                  for(let i=2;i<=7;i++)
@@ -305,6 +305,6 @@
                  }
                  document.getElementById("page_end").style ="display : none"      
                  let page_num = page_change();
-                 document.getElementById(page_num).style = "display : block";
+                 document.getElementById("page7").style = "display : block";
 
              }
